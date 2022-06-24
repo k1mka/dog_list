@@ -33,30 +33,29 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: ListView(
+          children: const <Widget>[
+            ListItem(text: 'Рачик не лох'),
+            ListItem(text: 'Шучу, Рачик лох'),
+            ListItem(text: 'Рачик ваще тмп'),
+            ListItem(text: 'Рачик ваще тмп'),
+            ListItem(text: 'Рачик ваще тмп'),
+            ListItem(text: 'Рачик ваще тмп'),
+            ListItem(text: 'Рачик ваще тмп'),
+            ListItem(text: 'Рачик не лох'),
+            ListItem(text: 'Шучу, Рачик лох'),
+            ListItem(text: 'Рачик ваще тмп'),
+            ListItem(text: 'Рачик ваще тмп'),
+            ListItem(text: 'Рачик ваще тмп'),
+            ListItem(text: 'Рачик ваще тмп'),
+            ListItem(text: 'Рачик ваще тмп'),
+          ],
         ),
-        body: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: const <Widget>[
-                ListItem(text: 'Рачик не лох'),
-                ListItem(text: 'Шучу, Рачик лох'),
-                ListItem(text: 'Рачик ваще тмп'),
-                ListItem(text: 'Рачик ваще тмп'),
-                ListItem(text: 'Рачик ваще тмп'),
-                ListItem(text: 'Рачик ваще тмп'),
-                ListItem(text: 'Рачик ваще тмп'),
-                ListItem(text: 'Рачик не лох'),
-                ListItem(text: 'Шучу, Рачик лох'),
-                ListItem(text: 'Рачик ваще тмп'),
-                ListItem(text: 'Рачик ваще тмп'),
-                ListItem(text: 'Рачик ваще тмп'),
-                ListItem(text: 'Рачик ваще тмп'),
-                ListItem(text: 'Рачик ваще тмп'),
-              ],
-            ),
-          ),
-        ));
+      ),
+    );
   }
 }
