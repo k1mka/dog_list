@@ -1,3 +1,4 @@
+
 name: array_names
 description: A new Flutter project.
 
@@ -29,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^0.13.4
+
 
 
   # The following adds the Cupertino Icons font to your application.
