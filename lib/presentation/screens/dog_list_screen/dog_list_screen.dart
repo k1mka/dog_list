@@ -3,6 +3,8 @@ import 'package:array_names/data/services/network_service.dart';
 import 'package:array_names/presentation/widgets/list_item.dart';
 import 'package:flutter/material.dart';
 
+import '../../../data/models/breed.dart';
+
 class DogsListScreen extends StatefulWidget {
   const DogsListScreen({Key? key}) : super(key: key);
 
@@ -20,29 +22,26 @@ class _MyHomePageState extends State<DogsListScreen> {
         title: const Text('DogsListScreen'),
       ),
       body: Center(
-        child: ListView(
-          children: <Widget>[
-            ElevatedButton(
-              child: const Text('Press me!'),
-              onPressed: () {
-                repo.fetchDogs();
-              },
-            ),
-            const ListItem(text: 'Австралийская овчарка'),
-            const ListItem(text: 'Бельгийская овчарка'),
-            const ListItem(text: 'Австралийский келпи'),
-            const ListItem(text: 'Австралийский шелковистый терьер'),
-            const ListItem(text: 'Аляскинский маламут'),
-            const ListItem(text: 'Американская акита-ину'),
-            const ListItem(text: 'Бордер-колли'),
-            const ListItem(text: 'Американский бульдог'),
-            const ListItem(text: 'Американский голый терьер'),
-            const ListItem(text: 'Американский кокер-спаниель'),
-            const ListItem(text: 'Английский бульдог'),
-            const ListItem(text: 'Английский сеттер'),
-            const ListItem(text: 'Аргентинский дог'),
-          ],
-        ),
+        child: FutureBuilder<List<Breed>>(
+            future: repo.fetchDogs(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done &&
+                  snapshot.hasData) {
+                final breedList = snapshot.data!;
+                return ListView.builder(
+                  itemCount: breedList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final breed = breedList[index];
+                    return Text(
+                      breed.fullName,
+                      style: const TextStyle(fontSize: 30),
+                    );
+                  },
+                );
+              } else {
+                return const CircularProgressIndicator();
+              }
+            }),
       ),
     );
   }

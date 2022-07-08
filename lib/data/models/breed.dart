@@ -4,6 +4,8 @@ class Breed {
 
   Breed(this.breed, {this.subBreed});
 
+  String get fullName => '$breed ${subBreed ?? ''}';
+
   @override
   String toString() {
     return 'Breed{breed: $breed, subBreed: $subBreed}';
