@@ -1,7 +1,7 @@
+import 'package:array_names/data/repositories/repository.dart';
+import 'package:array_names/data/services/network_service.dart';
 import 'package:array_names/presentation/widgets/list_item.dart';
 import 'package:flutter/material.dart';
-
-import '../../../data/services/network_service.dart';
 
 class DogsListScreen extends StatefulWidget {
   const DogsListScreen({Key? key}) : super(key: key);
@@ -11,6 +11,8 @@ class DogsListScreen extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<DogsListScreen> {
+  final repo = Repository(NetworkService());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +25,7 @@ class _MyHomePageState extends State<DogsListScreen> {
             ElevatedButton(
               child: const Text('Press me!'),
               onPressed: () {
-                var networkService = NetworkService();
-                networkService.fetchDogs();
+                repo.fetchDogs();
               },
             ),
             const ListItem(text: 'Австралийская овчарка'),
