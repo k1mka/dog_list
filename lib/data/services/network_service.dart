@@ -15,11 +15,15 @@ class NetworkService {
     var myDogsList = <Breed>[];
     for (var d in dogMainBreeds) {
       List putSubBreeds = messageMap[d];
-      for (var s in putSubBreeds) {
-        Breed breed = Breed(d, subBreed: s);
-
+      if (putSubBreeds.isNotEmpty) {
+        for (var s in putSubBreeds) {
+          final breed = Breed(d, subBreed: s);
+          myDogsList.add(breed);
+          print('$breed \n');
+        }
+      } else {
+        final breed = Breed(d);
         myDogsList.add(breed);
-
         print('$breed \n');
       }
     }
