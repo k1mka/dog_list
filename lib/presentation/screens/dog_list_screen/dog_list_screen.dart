@@ -1,9 +1,8 @@
+import 'package:array_names/data/models/breed.dart';
 import 'package:array_names/data/repositories/repository.dart';
 import 'package:array_names/data/services/network_service.dart';
-import 'package:array_names/presentation/widgets/list_item.dart';
+import 'package:array_names/presentation/widgets/breed_widget.dart';
 import 'package:flutter/material.dart';
-
-import '../../../data/models/breed.dart';
 
 class DogsListScreen extends StatefulWidget {
   const DogsListScreen({Key? key}) : super(key: key);
@@ -30,13 +29,8 @@ class _MyHomePageState extends State<DogsListScreen> {
                 final breedList = snapshot.data!;
                 return ListView.builder(
                   itemCount: breedList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final breed = breedList[index];
-                    return Text(
-                      breed.fullName,
-                      style: const TextStyle(fontSize: 30),
-                    );
-                  },
+                  itemBuilder: (BuildContext context, int index) =>
+                      BreedWidget(breedList[index]),
                 );
               } else {
                 return const CircularProgressIndicator();
