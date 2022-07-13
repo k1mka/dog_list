@@ -11,6 +11,13 @@ class BreedWidget extends StatelessWidget {
 
   final Breed breed;
 
+  void _navigateToNextScreen(BuildContext context) => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ImagesScreen(breed: breed),
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -26,9 +33,4 @@ class BreedWidget extends StatelessWidget {
       ),
     );
   }
-}
-
-void _navigateToNextScreen(BuildContext context) {
-  Navigator.of(context)
-      .push(MaterialPageRoute(builder: (context) => ImagesScreen()));
 }
