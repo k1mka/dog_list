@@ -18,6 +18,7 @@ class _MyHomePageState extends State<DogsListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black87,
         title: const Text('DogsListScreen'),
       ),
       body: Center(
@@ -27,10 +28,10 @@ class _MyHomePageState extends State<DogsListScreen> {
               if (snapshot.connectionState == ConnectionState.done &&
                   snapshot.hasData) {
                 final breedList = snapshot.data!;
-                return ListView.builder(
+                return ListView.separated(
                   itemCount: breedList.length,
-                  itemBuilder: (BuildContext context, int index) =>
-                      BreedWidget(breedList[index]),
+                  itemBuilder: (_, index) => BreedWidget(breedList[index]),
+                  separatorBuilder: (_, __) => const Divider(thickness: 4),
                 );
               } else {
                 return const CircularProgressIndicator();
