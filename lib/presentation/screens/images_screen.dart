@@ -10,6 +10,11 @@ class ImagesScreen extends StatefulWidget {
 class _ImagesScreenState extends State<ImagesScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black87,
+        title: const Text('ImagesScreen'),
+      ),
+    );
   }
 }
