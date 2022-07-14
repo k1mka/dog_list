@@ -20,7 +20,7 @@ class Repository {
         }
       }
     }
-    _printDogs(myDogsList);
+    //  _printDogs(myDogsList);
     return myDogsList;
   }
 
@@ -28,5 +28,10 @@ class Repository {
     for (var breed in list) {
       print('$breed \n');
     }
+  }
+
+  Future<List<String>> getAlbum() async {
+    final images = await networkService.fetchImages();
+    return images;
   }
 }

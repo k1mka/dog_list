@@ -15,6 +15,12 @@ class _MyHomePageState extends State<DogsListScreen> {
   final repo = Repository(NetworkService());
 
   @override
+  void initState() {
+    repo.getAlbum();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
