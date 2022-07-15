@@ -27,7 +27,18 @@ class _ImagesScreenState extends State<ImagesScreen> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {
-            return Image.network(snapshot.data![0]);
+            // todo: сделать скролл как в тиктоке
+            return ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, i) {
+                return Image.network(
+                  snapshot.data![i],
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                );
+              },
+            );
           } else {
             return const CircularProgressIndicator();
           }
