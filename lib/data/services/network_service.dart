@@ -12,15 +12,13 @@ class NetworkService {
   }
 
   Future<List<String>> fetchImages(Breed breed) async {
-    late final Uri url;
-    const imagesCount = 10;
-    if (breed.subBreed != null) {
-      url = Uri.parse(
-          'https://dog.ceo/api/breed/${breed.breed}/${breed.subBreed}/images/random/$imagesCount');
-    } else {
-      url = Uri.parse(
-          'https://dog.ceo/api/breed/${breed.breed}/images/random/$imagesCount');
-    }
+    var checkSubBreed = breed.subBreed != null;
+    final url = checkSubBreed
+        ? Uri.parse(
+            'https://dog.ceo/api/breed/${breed.breed}/${breed.subBreed}/images/random/10')
+        : Uri.parse(
+            'https://dog.ceo/api/breed/${breed.breed}/images/random/10');
+
     final response = await get(url);
     Map<String, dynamic> responseMapImages = json.decode(response.body);
     final messageImages = List<String>.from(responseMapImages['message']);
