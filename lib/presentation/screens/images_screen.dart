@@ -23,7 +23,7 @@ class _ImagesScreenState extends State<ImagesScreen> {
         title: const Text('ImagesScreen'),
       ),
       body: FutureBuilder<List<String>>(
-        future: repo.getAlbum(),
+        future: repo.getAlbum(widget.breed),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.hasData) {

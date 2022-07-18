@@ -20,7 +20,6 @@ class Repository {
         }
       }
     }
-    //  _printDogs(myDogsList);
     return myDogsList;
   }
 
@@ -30,8 +29,8 @@ class Repository {
     }
   }
 
-  Future<List<String>> getAlbum() async {
-    final images = await networkService.fetchImages();
+  Future<List<String>> getAlbum(Breed breed) async {
+    final images = await networkService.fetchImages(breed);
     return images;
   }
 }
