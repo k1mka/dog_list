@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:array_names/data/models/breed.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
 class NetworkService {
@@ -32,6 +33,7 @@ class NetworkService {
         ? _breedWithSubBreedEndpointUrl(breed)
         : _breedPhotoEndpointUrl(breed));
     final response = await get(url);
+
     Map<String, dynamic> responseMapImages = json.decode(response.body);
     final messageImages = List<String>.from(responseMapImages[_messageKey]);
     return messageImages;
