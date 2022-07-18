@@ -10,11 +10,13 @@ class NetworkService {
 
   static const _messageKey = 'message';
 
+  static const _countImages = 10;
+
   String _breedPhotoEndpointUrl(Breed breed) =>
-      '$_apiUrl/breed/${breed.breed}/images/random/10';
+      '$_apiUrl/breed/${breed.breed}/images/random/$_countImages';
 
   String _breedWithSubBreedEndpointUrl(Breed breed) =>
-      '$_apiUrl/breed/${breed.breed}/${breed.subBreed}/images/random/10';
+      '$_apiUrl/breed/${breed.breed}/${breed.subBreed}/images/random/$_countImages';
 
   Future<Map<String, dynamic>> fetchDogs() async {
     final url = Uri.parse(_dogListEndpointUrl);
