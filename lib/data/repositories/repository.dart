@@ -23,12 +23,6 @@ class Repository {
     return myDogsList;
   }
 
-  void _printDogs(List<Breed> list) {
-    for (var breed in list) {
-      print('$breed \n');
-    }
-  }
-
   Future<List<String>> getAlbum(Breed breed) async {
     final images = await networkService.fetchImages(breed);
     return images;

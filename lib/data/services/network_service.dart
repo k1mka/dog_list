@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:array_names/data/models/breed.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
 class NetworkService {
