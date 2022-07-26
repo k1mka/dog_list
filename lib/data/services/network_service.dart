@@ -12,6 +12,8 @@ class NetworkService {
 
   static const _countImages = 10;
 
+  const NetworkService();
+
   String _breedPhotoEndpointUrl(Breed breed) =>
       '$_apiUrl/breed/${breed.breed}/images/random/$_countImages';
 
