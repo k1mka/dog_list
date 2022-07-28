@@ -7,7 +7,7 @@ import 'data/services/network_service.dart';
 final getIt = GetIt.instance;
 
 void setupServiceLocator() {
-  const NetworkService service = NetworkService();
+  NetworkService service = NetworkServiceImpl();
   getIt.registerSingleton<NetworkService>(service);
   getIt.registerSingleton<Repository>(RepositoryImpl(service));
 }

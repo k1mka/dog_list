@@ -2,17 +2,18 @@ import 'dart:convert';
 import 'package:array_names/data/models/breed.dart';
 import 'package:http/http.dart';
 
-class NetworkService {
+abstract class NetworkService {
+  Future<Map<String, dynamic>> fetchDogs();
+
+  Future<List<String>> fetchImages(Breed breed);
+}
+
+class NetworkServiceImpl implements NetworkService {
   static const _baseUrl = "https://dog.ceo";
   static const _apiUrl = "$_baseUrl/api";
-
   static const _dogListEndpointUrl = '$_apiUrl/breeds/list/all';
-
   static const _messageKey = 'message';
-
   static const _countImages = 10;
-
-  const NetworkService();
 
   String _breedPhotoEndpointUrl(Breed breed) =>
       '$_apiUrl/breed/${breed.breed}/images/random/$_countImages';
@@ -20,6 +21,7 @@ class NetworkService {
   String _breedWithSubBreedEndpointUrl(Breed breed) =>
       '$_apiUrl/breed/${breed.breed}/${breed.subBreed}/images/random/$_countImages';
 
+  @override
   Future<Map<String, dynamic>> fetchDogs() async {
     final url = Uri.parse(_dogListEndpointUrl);
     final response = await get(url);
@@ -28,6 +30,7 @@ class NetworkService {
     return messageMap;
   }
 
+  @override
   Future<List<String>> fetchImages(Breed breed) async {
     final hasSubBreed = breed.subBreed != null;
     final url = Uri.parse(hasSubBreed
