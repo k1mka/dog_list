@@ -1,13 +1,22 @@
-import '../data/models/breed.dart';
-import '../data/repositories/repository.dart';
+import 'package:array_names/data/models/breed.dart';
+import 'package:array_names/data/repositories/repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ImagesProvider {
+import '../service_locator.dart';
+
+final getImagesProvider = StateNotifierProvider(
+  (ref) {
+    final repository = ref.read(repositoryProvider);
+    return ImagesProvider(repository);
+  },
+);
+
+class ImagesProvider extends StateNotifier<List<String>> {
   final Repository repo;
+  ImagesProvider(this.repo) : super([]);
 
-  const ImagesProvider(this.repo);
-
-  Future<List<String>> getImages(Breed breed) async {
+  void getImages(Breed breed) async {
     final dogsImages = await repo.getAlbum(breed);
-    return dogsImages;
+    state = dogsImages;
   }
 }

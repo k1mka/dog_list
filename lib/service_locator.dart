@@ -9,7 +9,8 @@ final _networkServiceProvider = Provider<NetworkService>(
 );
 
 final repositoryProvider = Provider<Repository>(
-  (ref) => RepositoryImpl(
-    ref.read(_networkServiceProvider),
-  ),
+  (ref) {
+    final networkService = ref.read(_networkServiceProvider);
+    return RepositoryImpl(networkService);
+  },
 );
