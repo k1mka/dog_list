@@ -1,13 +1,15 @@
-import 'package:get_it/get_it.dart';
-
 import 'data/repositories/repository.dart';
 import 'data/repositories/repository_impl.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'data/services/network_service.dart';
 
-final getIt = GetIt.instance;
+final _networkServiceProvider = Provider<NetworkService>(
+  (ref) => NetworkServiceImpl(),
+);
 
-void setupServiceLocator() {
-  NetworkService service = NetworkServiceImpl();
-  getIt.registerSingleton<NetworkService>(service);
-  getIt.registerSingleton<Repository>(RepositoryImpl(service));
-}
+final repositoryProvider = Provider<Repository>(
+  (ref) => RepositoryImpl(
+    ref.read(_networkServiceProvider),
+  ),
+);
