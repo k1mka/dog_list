@@ -1,8 +1,6 @@
 import 'package:array_names/business_logic/images_provider.dart';
+import 'package:array_names/data/models/breed.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../../../data/models/breed.dart';
 
 class ImagesLayout extends StatelessWidget {
   final Breed breed;

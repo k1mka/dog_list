@@ -2,7 +2,6 @@ import 'package:array_names/business_logic/dog_list_provider.dart';
 import 'package:array_names/data/models/breed.dart';
 import 'package:array_names/presentation/widgets/breed_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class DogListLayout extends StatelessWidget {
   const DogListLayout({Key? key}) : super(key: key);
