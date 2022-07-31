@@ -3,7 +3,7 @@ import 'package:array_names/data/repositories/repository.dart';
 import 'package:array_names/service_locator.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final getImagesProvider = StateNotifierProvider(
+final getImagesProvider = StateNotifierProvider<ImagesProvider, List<String>>(
   (ref) {
     final repository = ref.read(repositoryProvider);
     return ImagesProvider(repository);
