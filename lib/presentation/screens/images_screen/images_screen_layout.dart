@@ -1,4 +1,5 @@
 import 'package:array_names/data/models/breed.dart';
+import 'package:array_names/presentation/widgets/images_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -33,13 +34,7 @@ class ImagesLayoutState extends ConsumerState<ConsumerStatefulWidget> {
       body: PageView(
         scrollDirection: Axis.vertical,
         children: [
-          for (var url in dogsImages)
-            Image.network(
-              url,
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
-            )
+          for (var url in dogsImages) ImageWidget(link: url),
         ],
       ),
     );
