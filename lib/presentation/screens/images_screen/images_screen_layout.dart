@@ -1,40 +1,41 @@
-import 'package:array_names/business_logic/images_provider.dart';
+import 'package:array_names/data/models/breed.dart';
+import 'package:array_names/presentation/widgets/images_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../data/models/breed.dart';
+import '../../../business_logic/images_provider.dart';
 
-class ImagesLayout extends StatelessWidget {
+class ImagesLayout extends ConsumerStatefulWidget {
   final Breed breed;
+
   const ImagesLayout({Key? key, required this.breed}) : super(key: key);
 
   @override
+  ConsumerState<ConsumerStatefulWidget> createState() => ImagesLayoutState();
+}
+
+class ImagesLayoutState extends ConsumerState<ConsumerStatefulWidget> {
+  late final parentWidget = widget as ImagesLayout;
+
+  @override
+  void initState() {
+    ref.read(getImagesProvider.notifier).getImages(parentWidget.breed);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final dogsImages = ref.watch(getImagesProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text(breed.fullName),
+        title: Text(parentWidget.breed.fullName),
       ),
-      body: FutureBuilder<List<String>>(
-        future: context.read<ImagesProvider>().getImages(breed),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done &&
-              snapshot.hasData) {
-            return PageView(
-              scrollDirection: Axis.vertical,
-              children: snapshot.data!
-                  .map<Image>((url) => Image.network(
-                        url,
-                        height: MediaQuery.of(context).size.height,
-                        width: MediaQuery.of(context).size.width,
-                        fit: BoxFit.cover,
-                      ))
-                  .toList(),
-            );
-          } else {
-            return const CircularProgressIndicator();
-          }
-        },
+      body: PageView(
+        scrollDirection: Axis.vertical,
+        children: [
+          for (var url in dogsImages) ImageWidget(link: url),
+        ],
       ),
     );
   }

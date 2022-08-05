@@ -1,7 +1,6 @@
 import 'package:array_names/data/models/breed.dart';
+import 'package:array_names/presentation/screens/images_screen/images_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../screens/images_screen/images_screen.dart';
 
 class BreedWidget extends StatelessWidget {
   const BreedWidget(
