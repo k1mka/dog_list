@@ -15,11 +15,11 @@ class ImagesLayout extends ConsumerStatefulWidget {
 }
 
 class ImagesLayoutState extends ConsumerState<ConsumerStatefulWidget> {
+  late final parentWidget = widget as ImagesLayout;
+
   @override
   void initState() {
-    ref.read(getImagesProvider.notifier).getImages(
-          (widget as ImagesLayout).breed,
-        );
+    ref.read(getImagesProvider.notifier).getImages(parentWidget.breed);
     super.initState();
   }
 
@@ -29,7 +29,7 @@ class ImagesLayoutState extends ConsumerState<ConsumerStatefulWidget> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text((widget as ImagesLayout).breed.fullName),
+        title: Text(parentWidget.breed.fullName),
       ),
       body: PageView(
         scrollDirection: Axis.vertical,
