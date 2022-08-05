@@ -15,8 +15,5 @@ class DogListProvider extends StateNotifier<List<Breed>> {
   final Repository repo;
 
   DogListProvider(this.repo) : super([]);
-  void getDogs() async {
-    final dogList = await repo.fetchDogs();
-    state = dogList;
-  }
+  void getDogs() async => state = await repo.fetchDogs();
 }
