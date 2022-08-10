@@ -1,5 +1,7 @@
+import 'package:array_names/business_logic/cubit_states/events.dart';
 import 'package:array_names/business_logic/cubit_states/images_state.dart';
-import 'package:array_names/business_logic/dogs_images_cubit.dart';
+import 'package:array_names/business_logic/dogs_images_bloc.dart';
+
 import 'package:array_names/data/models/breed.dart';
 import 'package:array_names/presentation/widgets/images_widget.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +24,7 @@ class _ImagesLayoutState extends State<ImagesLayout> {
         backgroundColor: Colors.black87,
         title: Text(widget.breed.fullName),
       ),
-      body:
-          BlocBuilder<DogsImagesCubit, ImagesState>(builder: (context, state) {
+      body: BlocBuilder<DogsImagesBloc, ImagesState>(builder: (context, state) {
         if (state is InitialState) {
           return const Center(child: Text('expectation'));
         } else if (state is ImagesError) {
@@ -47,6 +48,6 @@ class _ImagesLayoutState extends State<ImagesLayout> {
   @override
   void initState() {
     super.initState();
-    context.read<DogsImagesCubit>().cubitGetImages(widget.breed);
+    context.read<DogsImagesBloc>().add(LoadingImagesEvent());
   }
 }
