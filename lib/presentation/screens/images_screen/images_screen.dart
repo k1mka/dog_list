@@ -1,4 +1,4 @@
-import 'package:array_names/business_logic/dogs_images_cubit.dart';
+import 'package:array_names/business_logic/dogs_images_bloc.dart';
 import 'package:array_names/data/models/breed.dart';
 import 'package:array_names/data/repositories/repository.dart';
 import 'package:array_names/data/services/get_it.dart';
@@ -13,8 +13,8 @@ class ImagesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<DogsImagesCubit>(
-      create: (context) => DogsImagesCubit(getIt<Repository>()),
+    return BlocProvider<DogsImagesBloc>(
+      create: (context) => DogsImagesBloc(getIt<Repository>(), breed),
       child: ImagesLayout(breed: breed),
     );
   }
