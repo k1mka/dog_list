@@ -8,6 +8,8 @@ final _networkServiceProvider = Provider<NetworkService>(
   (ref) => NetworkServiceImpl(),
 );
 
+//TODO: УДАЛИТЬ ПОЗЖЕ
+
 final repositoryProvider = Provider<Repository>(
   (ref) {
     final networkService = ref.read(_networkServiceProvider);
