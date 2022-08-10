@@ -1,10 +1,18 @@
-import 'package:array_names/data/models/breed.dart';
+import 'package:array_names/business_logic/cubit_states/dog_list_state.dart';
+import 'package:array_names/data/repositories/repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../data/repositories/repository.dart';
 
-class DogListCubit extends Cubit<List<Breed>> {
+class DogListCubit extends Cubit<DogListState> {
   Repository repo;
-  DogListCubit(this.repo) : super([]);
+  DogListCubit(this.repo) : super(InitialState());
 
-  void cubitFetchDogs() async => emit(await repo.fetchDogs());
+  void cubitFetchDogs() async {
+    emit(LoadingDogs()); // заэмитить
+    try {
+      final breeds = await repo.fetchDogs();
+      emit(LoadedDogs(breeds));
+    } catch (e) {
+      emit(ErrorDogs(e));
+    }
+  }
 }
