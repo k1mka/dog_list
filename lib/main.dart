@@ -1,11 +1,10 @@
+import 'package:array_names/data/services/get_it.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dogs_app.dart';
 
 void main() {
+  setupServiceLocator();
   runApp(
-    const ProviderScope(
-      child: DogsApp(),
-    ),
+    const DogsApp(),
   );
 }
