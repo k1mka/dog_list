@@ -13,6 +13,15 @@ class ImagesLayout extends StatefulWidget {
   State<ImagesLayout> createState() => _ImagesLayoutState();
 }
 
+class ImagesLayoutState extends ConsumerState<ConsumerStatefulWidget> {
+  @override
+  void initState() {
+    ref.read(getImagesProvider.notifier).getImages(
+          (widget as ImagesLayout).breed,
+        );
+    super.initState();
+  }
+
 class _ImagesLayoutState extends State<ImagesLayout> {
   @override
   Widget build(BuildContext context) {
