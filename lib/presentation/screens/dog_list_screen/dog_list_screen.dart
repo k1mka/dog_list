@@ -10,8 +10,8 @@ class DogsListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<DogListCubit>(
-      create: (_) => DogListCubit(getIt<Repository>()),
+    return BlocProvider<DogListBloc>(
+      create: (_) => DogListBloc(getIt<Repository>()),
       child: const DogListLayout(),
     );
   }
