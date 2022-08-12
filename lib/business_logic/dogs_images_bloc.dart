@@ -1,10 +1,10 @@
-import 'package:array_names/business_logic/cubit_states/events.dart';
+import 'package:array_names/business_logic/cubit_states/dogs_images_event.dart';
 import 'package:array_names/business_logic/cubit_states/images_state.dart';
 import 'package:array_names/data/models/breed.dart';
 import 'package:array_names/data/repositories/repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DogsImagesBloc extends Bloc<Events, ImagesState> {
+class DogsImagesBloc extends Bloc<DogsImagesEvent, ImagesState> {
   final Repository repo;
   final Breed breed;
 

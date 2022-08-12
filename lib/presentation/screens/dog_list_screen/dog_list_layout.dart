@@ -1,5 +1,5 @@
 import 'package:array_names/business_logic/cubit_states/dog_list_state.dart';
-import 'package:array_names/business_logic/cubit_states/events.dart';
+import 'package:array_names/business_logic/cubit_states/dogs_event.dart';
 import 'package:array_names/business_logic/dog_list_cubit.dart';
 import 'package:array_names/presentation/widgets/breed_widget.dart';
 import 'package:array_names/presentation/widgets/dog_list_error_widget.dart';

@@ -1,8 +1,9 @@
-import 'package:array_names/business_logic/cubit_states/events.dart';
+import 'package:array_names/business_logic/cubit_states/dogs_images_event.dart';
 import 'package:array_names/business_logic/cubit_states/images_state.dart';
 import 'package:array_names/business_logic/dogs_images_bloc.dart';
 
 import 'package:array_names/data/models/breed.dart';
+import 'package:array_names/presentation/widgets/dog_list_error_widget.dart';
 import 'package:array_names/presentation/widgets/images_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +29,7 @@ class _ImagesLayoutState extends State<ImagesLayout> {
         if (state is InitialState) {
           return const Center(child: Text('expectation'));
         } else if (state is ImagesError) {
-          return const Text('Ошибка загрузки фотографий');
+          return const DogListErrorWidget();
         } else if (state is LoadingDogsImages) {
           return const CircularProgressIndicator();
         } else if (state is LoadedImages) {
