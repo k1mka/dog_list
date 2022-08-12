@@ -3,8 +3,6 @@ import 'package:array_names/data/repositories/repository_impl.dart';
 import 'package:array_names/data/services/network_service.dart';
 import 'package:get_it/get_it.dart';
 
-//TODO: удалить get it позже;
-
 final getIt = GetIt.instance;
 
 void setupServiceLocator() {
