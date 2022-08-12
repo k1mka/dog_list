@@ -1,4 +1,4 @@
-import 'package:array_names/business_logic/dog_list_cubit.dart';
+import 'package:array_names/business_logic/dog_list_bloc.dart';
 import 'package:array_names/data/repositories/repository.dart';
 import 'package:array_names/get_it.dart';
 import 'package:array_names/presentation/screens/dog_list_screen/dog_list_layout.dart';
