@@ -14,7 +14,7 @@ class ImagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<DogsImagesBloc>(
-      create: (context) => DogsImagesBloc(getIt<Repository>(), breed),
+      create: (context) => DogsImagesBloc(getIt<Repository>()),
       child: ImagesLayout(breed: breed),
     );
   }

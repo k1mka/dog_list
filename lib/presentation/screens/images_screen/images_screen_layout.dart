@@ -49,6 +49,6 @@ class _ImagesLayoutState extends State<ImagesLayout> {
   @override
   void initState() {
     super.initState();
-    context.read<DogsImagesBloc>().add(LoadingImagesEvent());
+    context.read<DogsImagesBloc>().add(LoadingImagesEvent(widget.breed));
   }
 }
