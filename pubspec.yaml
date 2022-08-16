@@ -31,7 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.4
-  flutter_riverpod: ^1.0.4
+  flutter_bloc: ^8.0.1
+  get_it: ^7.2.0
 
 
 
