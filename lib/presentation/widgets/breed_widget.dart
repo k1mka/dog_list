@@ -31,7 +31,7 @@ class BreedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        sendAnalyticsEvent(eventName: 'aadkadpadadadadadadad', clickEvent: 'clickEvent');
+        sendAnalyticsEvent(eventName: 'click_on_the_${breed.getFullNameToFirebase}', clickEvent: 'clickEvent');
         _navigateToNextScreen(context);
       },
       child: Padding(

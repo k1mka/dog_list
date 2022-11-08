@@ -6,6 +6,8 @@ class Breed {
 
   String get fullName => '$breed ${subBreed ?? ''}';
 
+  String get getFullNameToFirebase => '$breed${subBreed ?? '_subBreed_null'}';
+
   @override
   String toString() {
     return 'Breed{breed: $breed, subBreed: $subBreed}';
