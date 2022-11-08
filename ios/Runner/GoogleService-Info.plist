@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>383813993013-ne0iq6jlhqqp66aufao1is4p017ea1ck.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.383813993013-ne0iq6jlhqqp66aufao1is4p017ea1ck</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBtMaAAiNrjO-JnEYqhYUnvEL5LYzDezPY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>383813993013</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.arrayNames</string>
+	<key>PROJECT_ID</key>
+	<string>dogs-manes-list</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dogs-manes-list.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:383813993013:ios:b4d379ba87d9a1e6fc677c</string>
+</dict>
+</plist>

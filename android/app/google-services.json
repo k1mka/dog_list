@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "383813993013",
+    "project_id": "dogs-manes-list",
+    "storage_bucket": "dogs-manes-list.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383813993013:android:4454161de75c8f70fc677c",
+        "android_client_info": {
+          "package_name": "com.example.array_names"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383813993013-vnv1bvfg4dvandhgq81oo1o1a8mhsc83.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3C894pp4LFGSCR4La6Re-bpHlSY0Nu9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383813993013-vnv1bvfg4dvandhgq81oo1o1a8mhsc83.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

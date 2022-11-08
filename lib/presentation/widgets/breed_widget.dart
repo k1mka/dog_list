@@ -1,9 +1,10 @@
 import 'package:array_names/data/models/breed.dart';
 import 'package:array_names/presentation/screens/images_screen/images_screen.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class BreedWidget extends StatelessWidget {
-  const BreedWidget(
+  BreedWidget(
     this.breed, {
     Key? key,
   }) : super(key: key);
@@ -19,10 +20,18 @@ class BreedWidget extends StatelessWidget {
         ),
       );
 
+  final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
+  Future sendAnalyticsEvent({required String eventName, required String? clickEvent}) async {
+    await _analytics.logEvent(
+      name: eventName,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        sendAnalyticsEvent(eventName: 'aadkadpadadadadadadad', clickEvent: 'clickEvent');
         _navigateToNextScreen(context);
       },
       child: Padding(
