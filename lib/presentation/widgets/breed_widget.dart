@@ -1,10 +1,12 @@
+import 'package:array_names/business_logic/cubit_states/dogs_event.dart';
+import 'package:array_names/business_logic/dog_list_bloc.dart';
 import 'package:array_names/data/models/breed.dart';
 import 'package:array_names/presentation/screens/images_screen/images_screen.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BreedWidget extends StatelessWidget {
-  BreedWidget(
+  const BreedWidget(
     this.breed, {
     Key? key,
   }) : super(key: key);
@@ -20,18 +22,11 @@ class BreedWidget extends StatelessWidget {
         ),
       );
 
-  final FirebaseAnalytics _analytics = FirebaseAnalytics.instance;
-  Future sendAnalyticsEvent({required String eventName, required String? clickEvent}) async {
-    await _analytics.logEvent(
-      name: eventName,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        sendAnalyticsEvent(eventName: 'click_on_the_${breed.getFullNameToFirebase}', clickEvent: 'clickEvent');
+        context.read<DogListBloc>().add(FireBaseAnalyticEvent(breed));
         _navigateToNextScreen(context);
       },
       child: Padding(
