@@ -5,6 +5,6 @@ abstract class DogsEvent {}
 class LoadingDogsEvent extends DogsEvent {}
 
 class FireBaseAnalyticEvent extends DogsEvent {
-  FireBaseAnalyticEvent(this.breeds);
-  final Breed breeds;
+  FireBaseAnalyticEvent(this.breed);
+  final Breed breed;
 }
