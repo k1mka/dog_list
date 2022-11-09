@@ -1,5 +1,6 @@
 import 'package:array_names/business_logic/dog_list_bloc.dart';
 import 'package:array_names/data/repositories/repository.dart';
+import 'package:array_names/data/services/analytic_service.dart';
 import 'package:array_names/get_it.dart';
 import 'package:array_names/presentation/screens/dog_list_screen/dog_list_layout.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class DogsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<DogListBloc>(
-      create: (_) => DogListBloc(getIt<Repository>()),
+      create: (_) => DogListBloc(getIt<Repository>(), getIt<AnalyticService>()),
       child: const DogListLayout(),
     );
   }
